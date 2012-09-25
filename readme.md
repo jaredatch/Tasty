@@ -52,14 +52,14 @@ I have been using this personally for over a year without any issues. Occasional
 
 ## Screenshots
 
-![Front end preview](screenshot-1.png "Front end preview")
+![Front end preview](https://raw.github.com/jaredatch/Tasty/master/screenshot-1.png "Front end preview")
 Front end preview
 
-![Bookmarklet](screenshot-2.png "Bookmarklet")
+![Bookmarklet](https://raw.github.com/jaredatch/Tasty/master/screenshot-2.png "Bookmarklet")
 Custom bookmarklet
 
-![Bookmarklet dupe](screenshot-3.png "Bookmarklet dupe")
+![Bookmarklet dupe](https://raw.github.com/jaredatch/Tasty/master/screenshot-3.png "Bookmarklet dupe")
 Custom bookmarklet. Attempting to bookmark a site already bookmarked.
 
-![admin preview](screenshot-4.png "admin preview")
+![admin preview](https://raw.github.com/jaredatch/Tasty/master/screenshot-4.png "admin preview")
 Admin preview
