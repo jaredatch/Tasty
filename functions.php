@@ -17,6 +17,9 @@
 define( 'CHILD_THEME_NAME', 'Tasty Child Theme'                  );
 define( 'CHILD_THEME_URL',  'https://github.com/jaredatch/Tasty' );
 
+/** Load child theme translations (do not remove) */
+load_child_theme_textdomain( 'ja-tasty-child', apply_filters( 'tasty_child_theme_textdomain', get_stylesheet_directory() . '/languages', 'ja-tasty-child' ) );
+
 // Start the engine
 require_once( get_template_directory() . '/lib/init.php' ); // Initialize Genesis Framework
 require_once( CHILD_DIR . '/lib/cleanup.php'             ); // Genesis & WordPress cleanup
@@ -41,10 +44,10 @@ function tasty_change_post_menu_label() {
 	global $menu;
 	global $submenu;
 
-	$menu[5][0]                 = 'Bookmarks';
-	$submenu['edit.php'][5][0]  = 'Bookmarks';
-	$submenu['edit.php'][10][0] = 'Add Bookmarks';
-	$submenu['edit.php'][16][0] = 'Tags';
+	$menu[5][0]                 = __( 'Bookmarks', 'ja-tasty-child' );
+	$submenu['edit.php'][5][0]  = __( 'Bookmarks', 'ja-tasty-child' );
+	$submenu['edit.php'][10][0] = __( 'Add Bookmarks', 'ja-tasty-child' );
+	$submenu['edit.php'][16][0] = __( 'Tags', 'ja-tasty-child' );
 
 }
 add_action( 'admin_menu', 'tasty_change_post_menu_label' );
@@ -60,16 +63,16 @@ function tasty_change_post_object_label() {
 	global $wp_post_types;
 
 	$labels                     = &$wp_post_types['post']->labels;
-	$labels->name               = 'Bookmarks';
-	$labels->singular_name      = 'Bookmark';
-	$labels->add_new            = 'Add Bookmark';
-	$labels->add_new_item       = 'Add Bookmark';
-	$labels->edit_item          = 'Edit Bookmarks';
-	$labels->new_item           = 'Bookmark';
-	$labels->view_item          = 'View Bookmark';
-	$labels->search_items       = 'Search Bookmarks';
-	$labels->not_found          = 'No Bookmarks found';
-	$labels->not_found_in_trash = 'No Bookmarks found in Trash';
+	$labels->name               = __( 'Bookmarks', 'ja-tasty-child' );
+	$labels->singular_name      = __( 'Bookmark', 'ja-tasty-child' );
+	$labels->add_new            = __( 'Add Bookmark', 'ja-tasty-child' );
+	$labels->add_new_item       = __( 'Add Bookmark', 'ja-tasty-child' );
+	$labels->edit_item          = __( 'Edit Bookmarks', 'ja-tasty-child' );
+	$labels->new_item           = __( 'Bookmark', 'ja-tasty-child' );
+	$labels->view_item          = __( 'View Bookmark', 'ja-tasty-child' );
+	$labels->search_items       = __( 'Search Bookmarks', 'ja-tasty-child' );
+	$labels->not_found          = __( 'No Bookmarks found', 'ja-tasty-child' );
+	$labels->not_found_in_trash = __( 'No Bookmarks found in Trash', 'ja-tasty-child' );
 
 }
 add_action( 'init', 'tasty_change_post_object_label' );
@@ -103,10 +106,10 @@ add_action( 'admin_print_styles', 'tasty_post_admin_print_styles' );
 function tasty_post_edit_columns( $columns ) {
     $columns = array(
         'cb'       => '<input type="checkbox" />',
-        'title'    => __( 'Title' ),
-		'link_url' => __( 'Link' ),
-		'tags'     => __('Tags'),
-		'date'     => __( 'Date Added' )
+        'title'    => __( 'Title', 'ja-tasty-child' ),
+		'link_url' => __( 'Link', 'ja-tasty-child' ),
+		'tags'     => __('Tags', 'ja-tasty-child' ),
+		'date'     => __( 'Date Added', 'ja-tasty-child' )
     );
     return $columns;
 }
@@ -157,7 +160,7 @@ add_action( 'genesis_before', 'genesis_do_nav' );
  * @return striing
  */
 function tasty_footer_creds_text( $creds ) {
-    $creds = '[footer_copyright] <a href="http://jaredatchison.com">Jared Atchison</a> [footer_childtheme_link] on the <a href="http://www.jaredatchison.com/go/genesis/">Genesis Framework</a> &middot; [footer_wordpress_link] &middot; [footer_loginout]';
+    $creds = '[footer_copyright] <a href="http://jaredatchison.com">Jared Atchison</a> [footer_childtheme_link] ' . sprintf( __( 'on the <a href="%s">Genesis Framework</a>', 'ja-tasty-child' ), 'http://www.jaredatchison.com/go/genesis/' ) . ' &middot; [footer_wordpress_link] &middot; [footer_loginout]';
     return $creds;
 }
 add_filter( 'genesis_footer_creds_text', 'tasty_footer_creds_text' );
@@ -170,7 +173,7 @@ add_filter( 'genesis_footer_creds_text', 'tasty_footer_creds_text' );
  * @return string
  */
 function tasty_search_button_text( $text ) {
-    return esc_attr( 'Go' );
+    return esc_attr__( 'Go', 'ja-tasty-child' );
 }
 add_filter( 'genesis_search_button_text', 'tasty_search_button_text' );
 
@@ -182,7 +185,7 @@ add_filter( 'genesis_search_button_text', 'tasty_search_button_text' );
  * @return string
  */
 function tasty_custom_search_text( $text ) {
-    return esc_attr( 'Search bookmarks' );
+    return esc_attr__( 'Search bookmarks', 'ja-tasty-child' );
 }
 add_filter( 'genesis_search_text', 'tasty_custom_search_text' );
 
@@ -197,7 +200,7 @@ function tasty_trash_alert(){
 	if ( isset( $_GET['trashed'] ) ) {
 		echo '<p class="notice">';
 		$trashedpost = get_post($_GET['ids']);
-		printf( __( '<em>%s</em> has been moved to the <a href="%s">trash</a>.' ), $trashedpost->post_title, get_option( 'site_url' ).'/wp-admin/edit.php?post_status=trash&post_type=post' );
+		printf( __( '<em>%s</em> has been moved to the <a href="%s">trash</a>.', 'ja-tasty-child' ), $trashedpost->post_title, get_option( 'site_url' ).'/wp-admin/edit.php?post_status=trash&post_type=post' );
 		echo '</p>';
 	}
 }
@@ -213,18 +216,18 @@ function tasty_tag_search_area(){
 	?>
 	<div id="quick-bar">
 		<form action="<?php echo site_url(); ?>/" method="POST" id="tag-search">
-		Search Tags
-		<input type="text" name="tag" id="tag" class="tagsearchfield" autocomplete="off" onfocus="setSuggest('tag');" placeholder="<?php _e("enter a tag", 'tasty'); ?>" />	
+		<?php _e( 'Search Tags', 'ja-tasty-child' ); ?>
+		<input type="text" name="tag" id="tag" class="tagsearchfield" autocomplete="off" onfocus="setSuggest('tag');" placeholder="<?php _e( 'enter a tag', 'ja-tasty-child' ); ?>" />	
 		<input type="hidden" name="oldtags" id="oldtags" value="<?php echo get_query_var('tag'); ?>" />	
 		<input type="hidden" name="oldurl" id="oldurl" value="<?php echo $oldurl; ?>" />	
 		</form>		
 		<div id="total">
 			<?php
 			global $wp_query;
-			echo is_home() ? 'Total Bookmarks': 'Bookmarks';
+			echo is_home() ? __( 'Total Bookmarks', 'ja-tasty-child' ) : __( 'Bookmarks', 'ja-tasty-child' );
 			?>
 			<span id="count"><?php echo $wp_query->found_posts; ?></span>
-			<a href="feed/"><img src="<?php echo CHILD_URL; ?>/images/rss.png" alt="RSS" /></a>
+			<a href="feed/"><img src="<?php echo CHILD_URL; ?>/images/rss.png" alt="<?php _e( 'RSS', 'ja-tasty-child' ); ?>" /></a>
 		</div>
 	</div>
 	<?php

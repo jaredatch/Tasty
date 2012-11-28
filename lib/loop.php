@@ -55,8 +55,8 @@ function tasty_do_loop() {
 				<?php the_tags( '<span class="a-tag">', '', '</span>' ); ?>
 			</div><!-- .entry-tags -->
 			<div class="entry-utility">
-				<?php edit_post_link( __( 'Edit', 'twentyten' ), '<span class="edit-link">', '</span>' ); ?>
-				<?php if ( current_user_can( 'edit_posts' ) ) { ?> <span class="meta-sep">|</span> <a href="<?php echo get_delete_post_link( $post->ID, '', false ) ?>">Delete</a> <?php } ?>
+				<?php edit_post_link( __( 'Edit', 'ja-tasty-child' ), '<span class="edit-link">', '</span>' ); ?>
+				<?php if ( current_user_can( 'edit_posts' ) ) { ?> <span class="meta-sep">|</span> <a href="<?php echo get_delete_post_link( $post->ID, '', false ) ?>"><?php _e( 'Delete', 'ja-tasty-child' ); ?></a> <?php } ?>
 			</div><!-- .entry-utility -->
 		</div><!-- .tasty-meta -->
 

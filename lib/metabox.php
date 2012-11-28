@@ -12,7 +12,7 @@
  * @since 1.0.0
  */
 function tasty_metaboxes() {
-    add_meta_box( 'tasty_link', 'Link', 'tasty_link_metabox', 'post', 'normal' );
+    add_meta_box( 'tasty_link', __( 'Link', 'ja-tasty-child' ), 'tasty_link_metabox', 'post', 'normal' );
 }
 add_action( 'admin_init', 'tasty_metaboxes');
 
@@ -45,10 +45,10 @@ function tasty_link_metabox() {
 		);
 		$dupe = new WP_Query( $dupe_args );
 		while ( $dupe->have_posts() ): $dupe->the_post();
-			echo '<div class="dupe">Page already bookmarked! ';
-			edit_post_link('(edit)');
+			echo '<div class="dupe">' . __( 'Page already bookmarked!', 'ja-tasty-child' ) . ' ';
+			edit_post_link( '' . __( '(edit)', 'ja-tasty-child' ) . '' );
 			echo '<br /><a href="' . get_permalink() . '">' . get_the_title() . '</a> '; 
-			the_tags('<br />Tagged: ', ', ');
+			the_tags( '<br />' . __( 'Tagged:', 'ja-tasty-child' ) . ' ', ', ' );
 			echo '</div>';
 		endwhile;
 	} 
