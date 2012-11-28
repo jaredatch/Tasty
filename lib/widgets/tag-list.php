@@ -26,9 +26,9 @@ add_action( 'widgets_init', 'tag_list_widget_setup' );
 class Tag_List_Widget extends WP_Widget {
 
 	function Tag_List_Widget() {
-		$widget_ops  = array( 'description' => 'Lists all tags' );
+		$widget_ops  = array( 'description' => __( 'Lists all tags', 'ja-tasty-child' ) );
 		$control_ops = array( 'width' => 400,  'height' => 200  );
-		$this->WP_Widget( 'tag_list', 'Tag List', $widget_ops, $control_ops );
+		$this->WP_Widget( 'tag_list', __( 'Tag List', 'ja-tasty-child' ), $widget_ops, $control_ops );
 	}
 
 	function widget( $args, $instance ) {
@@ -36,7 +36,7 @@ class Tag_List_Widget extends WP_Widget {
 		extract( $args );
 		echo $before_widget; 
 		
-		$title = apply_filters('widget_title', empty( $instance['title'] ) ? __( 'Top Tags' ) : $instance['title']);
+		$title = apply_filters('widget_title', empty( $instance['title'] ) ? __( 'Top Tags', 'ja-tasty-child' ) : $instance['title']);
 		echo $before_title . $title . $after_title;
 		?>
 	    <ul id="tag-list-widget">
@@ -65,14 +65,14 @@ class Tag_List_Widget extends WP_Widget {
 	function form( $instance ) {
 		//Defaults
 		$instance = wp_parse_args( (array) $instance, array( 
-			'title' => 'Top Tags',
+			'title' => __( 'Top Tags', 'ja-tasty-child' ),
 			'num'   => 45,
 		));	
 	?>  
-        <p><label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:'); ?></label> 
+        <p><label for="<?php echo $this->get_field_id('title'); ?>"><?php _e( 'Title:', 'ja-tasty-child' ); ?></label> 
         <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo $instance['title']; ?>" /></p>
         
-        <p><label for="<?php echo $this->get_field_id('num'); ?>"><?php _e('Number of links to show:'); ?></label> 
+        <p><label for="<?php echo $this->get_field_id('num'); ?>"><?php _e( 'Number of links to show:', 'ja-tasty-child' ); ?></label> 
         <input class="widefat" id="<?php echo $this->get_field_id('num'); ?>" name="<?php echo $this->get_field_name('num'); ?>" type="text" value="<?php echo $instance['num']; ?>" /></p>
 		<?php
 	}
