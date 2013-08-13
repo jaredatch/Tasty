@@ -10,17 +10,6 @@
  */
 
 /**
- * Disable Inactive Plugins Nag on Synthesis
- *
- * @since 1.0.0
- */
-function ea_disable_inactive_plugins_nag() {
-	if ( method_exists( 'Synthesis_Software_Monitor', 'inactive_plugin_notifications' ) )
-		remove_action( 'admin_notices', array( 'Synthesis_Software_Monitor', 'inactive_plugin_notifications' ) );
-} 
-add_action( 'init', 'ea_disable_inactive_plugins_nag' );
-
-/**
  * Query tweaks via pre_get_posts
  *
  * Instead of only showing 10 posts by default (bookmarks), show 100.
@@ -30,7 +19,7 @@ add_action( 'init', 'ea_disable_inactive_plugins_nag' );
  */
 function tasty_pre_get_posts_tweaks( $query ) {
 	if ( $query->is_main_query() && !is_admin() ) {
-		$query->set( 'posts_per_page', '5' );
+		$query->set( 'posts_per_page', '100' );
 	}
 }
 add_action( 'pre_get_posts', 'tasty_pre_get_posts_tweaks' );
