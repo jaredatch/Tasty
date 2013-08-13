@@ -18,7 +18,7 @@ It's important to note this theme is meant to stand alone. It should **not** be 
 
 With some work, the functionality could be pulled and developed into a plugin which could then be used on a normal WordPress install, however since I have 2,000+ bookmarks I wanted to keep everything seperate in its own install.
 
-**This theme requires the [Genesis Framework](http://www.jaredatchison.com/go/genesis)**. I developed it on Genesis simply because that was what was most efficent for me.
+**This theme requires the [Genesis Framework](http://www.jaredatchison.com/go/genesis)**.
 
 #### Suggested plugins to use with Tasty
 * [Query Multiple Taxonomies](http://wordpress.org/extend/plugins/query-multiple-taxonomies/)
