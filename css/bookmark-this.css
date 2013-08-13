@@ -1,0 +1,96 @@
+#screen-meta, 
+#icon-edit, 
+#footer,
+#wphead,
+#adminmenuback,
+#adminmenuwrap,
+#titlediv .inside,
+#delete-action,
+h2,
+#wp-content-editor-tools,
+#wpadminbar,
+#screen-meta,
+#screen-meta-links,
+#ed_toolbar,
+#post-status-info,
+#wpfooter,
+#message.updated { 
+	display:none !important; 
+}
+
+body.admin-bar #wpcontent, 
+body.admin-bar #adminmenu {
+	padding: 0px !important;
+	margin: 0px !important;
+}
+
+.wrap {
+	margin: 4px 15px 0 15px !important;
+}
+
+#titlewrap input {
+	font-size: 16px!important;
+}
+
+#message {
+	margin-bottom: 5px;
+}
+
+#side-info-column { 
+	width:200px; 
+}
+
+.inner-sidebar #side-sortables { 
+	width: 199px;
+}
+
+#side-info-column .postbox { 
+	width:199px; 
+	min-width:199px;
+}
+
+#publishing-action {
+	float:none; 
+	text-align:center;
+}
+
+.tagsdiv .newtag { 
+	width:125px;
+}
+
+.has-right-sidebar #post-body {
+	margin-right: -200px;
+	}
+
+.has-right-sidebar #post-body-content {
+    margin-right: 215px;
+}
+
+#wpbody-content {
+	padding-bottom: 0;
+}
+
+html.wp-toolbar {
+	padding-top: 0 !important
+}
+
+#bookmark-confirm {
+	position: absolute;
+	z-index: 999;
+	height: 292px;
+	width: 100%;
+	background: rgba( 0,0,0,0.80);
+}
+
+#bookmark-confirm .inner {
+	color: #fff;
+	font-size: 28px;
+	line-height: 1;
+	text-align: center;
+	text-shadow: 1px 1px 1px #000;
+	margin-top: 115px;
+}
+
+#bookmark-confirm .button {
+	vertical-align: top;
+}
